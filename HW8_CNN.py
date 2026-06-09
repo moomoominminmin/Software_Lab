@@ -116,7 +116,10 @@ def test(model, device, test_loader, loss_function):
             correct += pred.eq(target.view_as(pred)).sum().item()
         
     test_loss /= len(test_loader.dataset)
-    print(    )
+    print('\nTest set: Average loss: {:.4f}, Accuracy: {}/{} ({:.0f}%)\n'.format(
+        test_loss, correct, len(test_loader.dataset),
+        100. * correct / len(test_loader.dataset)))
+    
 
 # run test
 for epoch in range(epochs):
